@@ -11,11 +11,10 @@
 public class CastingPrimitives {
 
     public static void main(String[] args) {
-       int j = 9;
-int k = 2;
-double quot1 = (double)(j)/(double)(k);
-System.out.println(quot1);
-
+        int j = 9;
+        int k = 2;
+        double quot1 = (double)(j) / (double)(k);
+        System.out.println(quot1);
 
     }
 }
