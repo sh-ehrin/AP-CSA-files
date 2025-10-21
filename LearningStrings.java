@@ -92,5 +92,6 @@ public class LearningStrings {
     
     String s5 = str2.substring(str2.indexOf("P"), str2.indexOf("e")+1);
     System.out.println(s5);
+    
     }
 }
