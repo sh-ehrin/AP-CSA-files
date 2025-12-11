@@ -10,7 +10,8 @@ public class HabibProj4 {
         System.out.println(mirrorM("ruM"));
         System.out.println(mockMeme("!a,b,c d e,!f"));
         System.out.println(getHint("HAPPY", "HAPPY"));
-        playGuessingGame("HAPPY");
+        //playGuessingGame("HAPPY");
+        System.out.println(theEvilestE("EeeeEeeeEjflskfdjdfkE"));
     }
 
     public static boolean iCJava(String input) {
@@ -155,5 +156,16 @@ public class HabibProj4 {
             }
         }
         JOptionPane.showMessageDialog(null, "You ran out of tries! :( \nThe word was: " + hiddenWord);
+    }
+    
+    public static String theEvilestE(String str){
+        int count = 0;
+        for (int i = 0; i < str.length(); i++){
+            String temp = "" + str.charAt(i);
+            if (temp.equals("E")){
+                count++;
+            }
+        }
+        return "" + count;
     }
 }
