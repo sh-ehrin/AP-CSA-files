@@ -14,6 +14,16 @@ public class HabibArrays {
 
         System.out.println(double23(twothree));
         System.out.println(sameFirstLast(twothree));
+        
+        int[] a = new int[2];
+        a[0] = 1;
+        a[1] = 1;
+        int[] b = new int[2];
+        b[0] = 1;
+        b[1] = 2;
+        
+        System.out.println(biggerTwo(a, b));
+        
     }
     
     public static boolean double23(int[] nums){
@@ -49,8 +59,19 @@ public class HabibArrays {
     }
     
     public static boolean commonEnd(int[] a, int[] b){
-        
+        if (a[0] == b[0] || a[a.length-1] == b[b.length-1]){
+            return true;
+        }
+        else
+            return false;
     }
-
-
+    
+    public static int[] biggerTwo(int[] a, int[] b){
+        if (a[0] + a[1] >= b[0] + b[1]){
+            return a;
+        }
+        else {
+            return b;
+        }
+    }
 }
