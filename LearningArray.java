@@ -2,7 +2,7 @@ public class LearningArray {
     //WHEN A METHOD IS NON-STATIC, CALL IT ON A NEW OBJECT, WHEN IT IS STATIC CALL IT ON THE CLASS
     public static void main(String [] args){
         //declare an array to store the grades of an exam
-        int[] grades = new int[4];
+        int[] grades = new int[8];
         //can write int grades[] = new int[10]
 
         //declare an array to store the names of students
@@ -32,10 +32,13 @@ public class LearningArray {
         String[] classes = {"AP Calc AB", "AP Computer Science A", "Government"};
 
         //assign 4 test scores to the grades array
-        grades[0] = 100;
+        grades[0] = 76;
         grades[1] = 100;
-        grades[2] = 100;
+        grades[2] = 98;
         grades[3] = 200;
+        grades[4] = 200;
+        grades[5] = 200;
+        grades[6] = 200;
         //grades[10] DOES NOT WORK!
 
         //fill in the array with the student names
@@ -81,6 +84,7 @@ public class LearningArray {
         System.out.println(arrSum(grades));
         System.out.println(findAverage(grades));
         System.out.println(findMax(grades));
+        System.out.println(sequentialSearch(grades, 98));
     }
     
     public static void printArrayInt(int[] list){
@@ -135,7 +139,12 @@ public class LearningArray {
     }
     
     public static int sequentialSearch(int[] g, int find){
-        return 0;
+        for (int i=0; i < g.length; i++){
+            if (find == g[i]){
+                return i;
+            }
+        }
+        return -1;
     }
 
 
