@@ -1,3 +1,4 @@
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -15,14 +16,22 @@ public class HabibArrays {
         System.out.println(double23(twothree));
         System.out.println(sameFirstLast(twothree));
         
-        int[] a = new int[2];
+        int[] a = new int[3];
         a[0] = 1;
-        a[1] = 1;
-        int[] b = new int[2];
-        b[0] = 1;
-        b[1] = 2;
+        a[1] = 2;
+        a[2] = 3;
         
-        System.out.println(biggerTwo(a, b));
+        LearningArray printArray = new LearningArray();
+        
+        printArray.printArrayInt(reverse3(a));
+        
+        int[] b = {0, 2, 8, 9};
+        
+        printArray.printArrayInt(swapEnds(b));
+        
+        printArray.printArrayInt(rotateLeft3(b));
+        
+        printArray.printArrayInt(makeMiddle(b));
         
     }
     
@@ -73,5 +82,51 @@ public class HabibArrays {
         else {
             return b;
         }
+    }
+    
+    public static int[] reverse3(int[] nums){
+        int[] reverse = new int[3];
+        int j = 0;
+        for (int i = 2; i >= 0; i--){
+            reverse[j] = nums[i];
+            j++;
+        }
+        return reverse;
+    }
+    
+    public static int[] swapEnds(int[] nums){
+        int[] swapped = new int[nums.length];
+        for (int i = 0; i < nums.length; i++){
+            swapped[i] = nums[i];
+        }
+        swapped[0] = nums[nums.length-1];
+        swapped[swapped.length-1] = nums[0];
+        
+        return swapped;
+    }
+    
+    public static int[] rotateLeft3(int[] nums){
+        // 0 , 1, 2
+        // 1, 2, 0
+        
+        int[] rotated = new int[nums.length];
+        
+        for (int i = 0; i < nums.length-1; i++){
+            rotated[i] = nums[i+1];
+        }
+        rotated[nums.length-1] = nums[0];
+        
+        return rotated;
+    }
+    
+    public static int[] makeMiddle(int[] nums){
+        int[] two = new int[2];
+        int first = nums[(nums.length-1)/2];
+        int second = nums[((nums.length-1)/2)+1];
+        
+        two[0] = first;
+        two[1] = second;
+        
+        return two;
     }
 }
