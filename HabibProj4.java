@@ -10,8 +10,8 @@ public class HabibProj4 {
         System.out.println(mirrorM("ruM"));
         System.out.println(mockMeme("!a,b,c d e,!f"));
         System.out.println(getHint("HAPPY", "HAPPY"));
-        //playGuessingGame("HAPPY");
-        System.out.println(theEvilestE("EeeeEeeeEjflskfdjdfkE"));
+        playGuessingGame("HAPPY");
+        System.out.println(theEvilestE("AEBCeEeDEFGH"));
     }
 
     public static boolean iCJava(String input) {
@@ -143,11 +143,11 @@ public class HabibProj4 {
         String hint = "";
         String guess = JOptionPane.showInputDialog("Guess the Word!\nWord length: " + hiddenWord.length() + "\nTries Remaining: " + tries);
         
-        for (int i = 9; i > 0; i--){
+        for (int i = 9; i >= 0; i--){
             counter++;
             if(guess.equals(hiddenWord)){
                 JOptionPane.showMessageDialog(null, "Correct! \n you have guessed " + counter + " time(s)!");
-                break;
+                return;
             }
             else if(!guess.equals(hiddenWord)){
                 tries--;
@@ -158,14 +158,58 @@ public class HabibProj4 {
         JOptionPane.showMessageDialog(null, "You ran out of tries! :( \nThe word was: " + hiddenWord);
     }
     
-    public static String theEvilestE(String str){
+    public static int oddE(String str){
         int count = 0;
         for (int i = 0; i < str.length(); i++){
-            String temp = "" + str.charAt(i);
-            if (temp.equals("E")){
+            if (str.charAt(i) == 'E'){
                 count++;
             }
         }
-        return "" + count;
+        return count;
+    }
+    
+    public static int middleE(String str, int ecount){
+        int midE = (ecount/2) + 1;
+        int counter = 0;
+        
+        for(int i =0; i < str.length(); i++){
+            if(str.charAt(i) == 'E'){
+                counter++;
+                if(counter == midE){
+                    return i;
+                }
+            }
+        }
+        
+        return -1;
+    }
+    
+    public static String replaceDashes(String str, int pos){
+        String result = "";
+         for (int i = 0; i < str.length(); i++){
+             if (i == pos){
+                 result += str.charAt(i);
+             }
+             else{
+                 result += '-';
+             }
+         }
+         return result;
+    }
+    
+    public static String theEvilestE(String str){
+        int ecount = oddE(str);
+        
+        if (ecount == 0 || ecount%2 == 0){
+            return str;
+        }
+        
+        int mid = middleE(str, ecount);
+        
+        if (str.charAt(mid-1) == 'e' && str.charAt(mid+1) == 'e'){
+            return replaceDashes(str, mid);
+        }
+        else 
+            return str;
     }
 }
