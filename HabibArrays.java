@@ -18,8 +18,8 @@ public class HabibArrays {
         
         int[] a = new int[3];
         a[0] = 1;
-        a[1] = 2;
-        a[2] = 3;
+        a[1] = 3;
+        a[2] = 4;
         
         LearningArray printArray = new LearningArray();
         
@@ -33,6 +33,35 @@ public class HabibArrays {
         
         printArray.printArrayInt(makeMiddle(b));
         
+        System.out.println(countEvens(a));
+        
+	System.out.println(only14(a));
+
+        System.out.println(unlucky13(a));
+    }
+    
+    public static boolean only14(int [] nums){
+        boolean result = true;
+        
+        for (int i =0; i < nums.length; i++){
+            if (nums[i] != 1 && nums[i] != 4){
+                result = false;
+            }
+        }
+        return result;
+    }
+    
+    public static boolean unlucky13(int[] nums){
+        boolean result = false;
+        
+        for (int i = 0; i < nums.length; i++){
+            if (nums[i] == 1){
+                if (nums[i+1] == 3){
+                    result = true;
+                }
+            }
+        }
+        return result;
     }
     
     public static boolean double23(int[] nums){
@@ -128,5 +157,15 @@ public class HabibArrays {
         two[1] = second;
         
         return two;
+    }
+    
+    public static int countEvens(int[] nums){
+        int counter = 0;
+        for (int i =0; i < nums.length; i++){
+            if (nums[i]%2 == 0){
+                counter++;
+            }
+        }
+        return counter;
     }
 }
