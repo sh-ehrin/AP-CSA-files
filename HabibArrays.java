@@ -16,16 +16,17 @@ public class HabibArrays {
         System.out.println(double23(twothree));
         System.out.println(sameFirstLast(twothree));
         
-        int[] a = new int[3];
-        a[0] = 1;
-        a[1] = 3;
+        int[] a = new int[4];
+        a[0] = 0;
+        a[1] = 2;
         a[2] = 4;
+        a[3] = 4;
         
         LearningArray printArray = new LearningArray();
         
         printArray.printArrayInt(reverse3(a));
         
-        int[] b = {0, 2, 8, 9};
+        int[] b = {0, 3, 5, 6, 7};
         
         printArray.printArrayInt(swapEnds(b));
         
@@ -38,6 +39,82 @@ public class HabibArrays {
 	System.out.println(only14(a));
 
         System.out.println(unlucky13(a));
+        
+        System.out.println(either24(a));
+        
+        System.out.println(tripleUp(b));
+        
+        printArray.printArrayInt(shiftLeftNew(b));
+        
+        printArray.printArrayInt(shiftLeftModify(b));
+        
+        String [] words = {"HI", "bye", "hello", "BOO"};
+        
+        System.out.println(words.length);
+    }
+    
+    public static int smallestLength(String[] strs){
+        return 1;
+    }
+    
+    public static int[] shiftLeftNew(int[] nums){
+        int [] answer = new int[nums.length];
+        int holder = 0;
+        nums[0] = holder;
+        
+        for (int i = 0; i < nums.length-1; i++){
+            answer[i] = nums[i+1];
+        }
+        answer[nums.length-1] = holder;
+        
+        return answer;
+    }
+    
+    public static int[] shiftLeftModify(int[] nums){
+        int holder = 0;
+        nums[0] = holder;
+        
+        for (int i = 0; i < nums.length-1; i++){
+            nums[i] = nums[i+1];
+        }
+        nums[nums.length-1] = holder;
+        
+        return nums;
+    }
+    
+    public static boolean tripleUp(int[] nums){
+        boolean result = false;
+        for (int i = 0; i < nums.length-2; i++){
+            if (nums[i+1] == nums[i] + 1 && nums[i+2] == nums[i] + 2){
+                result = true;
+                return true;
+            }
+        }
+        return result;
+    }
+    
+    public static boolean either24(int[] nums){
+        boolean result2 = false;
+        boolean result4 = false;
+        
+        for (int i = 0; i < nums.length-1; i++){
+            if(nums[i] == 2 && nums[i+1] == 2){
+                result2 = true;
+            }
+            if(nums[i] == 4 && nums[i+1] == 4){
+                result4 = true;
+            }
+        }
+        
+        if (result2 && result4){
+            return false;
+        }
+        else if (result2 || result4){
+            return true;
+        }
+        else {
+            return false;
+        }
     }
     
     public static boolean only14(int [] nums){
