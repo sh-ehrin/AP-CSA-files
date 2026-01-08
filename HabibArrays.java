@@ -48,13 +48,51 @@ public class HabibArrays {
         
         printArray.printArrayInt(shiftLeftModify(b));
         
-        String [] words = {"HI", "bye", "hello", "BOO"};
+        String [] words = {"hey", "bye", "hello", "BOO"};
         
-        System.out.println(words.length);
+        System.out.println(smallestLength(words));
+        
+        System.out.println(lastString(words));
+        
+        System.out.println(startsWith("he", words));
+    }
+    
+    public static int startsWith(String str, String[] words){
+        int count = 0;
+        
+        for (int i = 0; i < words.length; i++){
+            if (words[i].substring(0, str.length()).equals(str)){
+                count++;
+            }
+        }
+        
+        return count;
     }
     
     public static int smallestLength(String[] strs){
-        return 1;
+        int answer = strs[0].length();
+        
+        for (int i = 0; i < strs.length; i++){
+            if (answer >= strs[i].length()){
+                answer = strs[i].length();
+            }
+        }
+        
+        return answer;
+    }
+    
+    public static String lastString(String[] words){
+        String holder = "";
+        
+        for (int i = 0; i < words.length-1; i++){
+            if (words[i].compareTo(words[i+1]) >= 0){
+                holder = words[i];
+                words[i] = words[i+1];
+                words[i+1] = holder;
+            }
+        }
+        
+        return words[words.length-1];
     }
     
     public static int[] shiftLeftNew(int[] nums){
