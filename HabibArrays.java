@@ -1,4 +1,7 @@
 
+import ap.LearningArray;
+
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -55,6 +58,22 @@ public class HabibArrays {
         System.out.println(lastString(words));
         
         System.out.println(startsWith("he", words));
+        
+        printArray.printArray(stringsThatStartWith("he", words));
+    }
+    
+    public static String[] stringsThatStartWith(String str, String[] words){
+        String[] answers = new String[startsWith(str, words)];
+        
+        int index = 0;
+        for (int i = 0; i < words.length; i++){
+            if (words[i].substring(0, str.length()).equals(str)){
+                answers[index] = words[i];
+                index++;
+            }
+        }
+        
+        return answers;
     }
     
     public static int startsWith(String str, String[] words){
