@@ -62,7 +62,7 @@ public class HabibArrays {
         printArray.printArray(stringsThatStartWith("he", words));
     }
     
-    public static String[] stringsThatStartWith(String str, String[] words){
+    public static String[] stringsThatStartWith(String str, String[] words){ //COMMON AP EXAM QUESTION
         String[] answers = new String[startsWith(str, words)];
         
         int index = 0;
@@ -76,7 +76,7 @@ public class HabibArrays {
         return answers;
     }
     
-    public static int startsWith(String str, String[] words){
+    public static int startsWith(String str, String[] words){ //COMMON AP EXAM QUESTION
         int count = 0;
         
         for (int i = 0; i < words.length; i++){
@@ -303,3 +303,4 @@ public class HabibArrays {
         return counter;
     }
 }
+
