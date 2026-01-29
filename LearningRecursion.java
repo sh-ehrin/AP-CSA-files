@@ -1,17 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package LearningRecursion;
-
-/**
- *
- * @author ShehrinHabib
- */
 public class LearningRecursion {
     public static void main(String [] args){
-        System.out.println(factRec(4));
+        System.out.println(factLoop(8));
+        System.out.println(reverse("abcde"));
+    }
+    
+    public static int factLoop(int n){
+        int prod = 1;
+        for (int i = 1; i <= n; i ++){
+            prod*= i;
+        }
+        
+        return prod;
     }
     
     public static int factRec(int n){
@@ -20,5 +19,14 @@ public class LearningRecursion {
         }
         else 
             return n * factRec(n-1);
+    }
+    
+    public static String reverse(String str){
+        if (str.length() == 1){
+            return str;
+        }
+        else {
+            return str.charAt(str.length()-1) + reverse(str.substring(0, str.length()-1));
+        }
     }
 }
