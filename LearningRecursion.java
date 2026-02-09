@@ -1,8 +1,11 @@
+package ap;
+
 public class LearningRecursion {
     public static void main(String [] args){
         System.out.println(factLoop(8));
         System.out.println(reverse("abcde"));
-        System.out.print(fibSeq(10));
+        System.out.println(fibSeq(10));
+        mystery(9);
     }
     
     public static int factLoop(int n){
@@ -22,6 +25,19 @@ public class LearningRecursion {
             return n * factRec(n-1);
     }
     
+    	public static void mystery(int x)
+	{
+		if(x == 0)
+		{
+		}
+		else
+		{
+                    System.out.print(x + " ");
+                    mystery(x-2);
+		}
+	}
+
+    
     public static String reverse(String str){
         if (str.length() == 1){
             return str;
@@ -32,11 +48,11 @@ public class LearningRecursion {
     }
     
     public static int fibSeq(int n){
-        if (n == 0){
-            return 0;
+        if (n <= 1){
+            return n;
         }
         else{
-            return n+1 + fibSeq(n-1);
+            return fibSeq(n-1) + fibSeq(n-2);
         }
     }
 }
