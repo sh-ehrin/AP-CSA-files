@@ -29,7 +29,7 @@ public class Fraction {
     }
     
     //Step 3: toString method
-    public String toString(){ //toString method with ALWAYS be overwritten when you systemout
+    public String toString(){ //toString method will ALWAYS be overwritten when you systemout
             if (denom == 0){
                 return "undefined";
             }
@@ -64,6 +64,33 @@ public class Fraction {
     public static void main(String [] args){
         Fraction f2 = new Fraction(1,2);
         System.out.println(f2.denom);
+    }
+    
+    //Step 5: Interesting methods specific to this class,
+    //collect coins, jumping, punch
+    //for fractions, add, multiply, divide, subtract
+    
+    public Fraction multiply(Fraction that){
+        return new Fraction(this.num*that.num, this.denom*that.denom);
+    }
+    
+    public Fraction divide(Fraction f2){
+        Fraction flipped = new Fraction (f2.denom, f2.num);
+        return this.multiply(flipped);
+    }
+    
+    public Fraction add(Fraction f2){
+        if (this.denom == f2.denom){
+            return new Fraction (this.num + f2.num, this.denom);
+        }
+        Fraction f3 = new Fraction(this.num*f2.denom, this.denom*f2.denom);
+        Fraction f4 = new Fraction(f2.num*this.denom, f2.denom*this.denom);
+        
+        return new Fraction(f3.num+f4.num, this.denom*f2.denom);
+    }
+    
+    public int gcf(){
+        if 
     }
     
 //    public Fractions(int n, int d){

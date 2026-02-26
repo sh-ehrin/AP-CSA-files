@@ -19,7 +19,7 @@ public class FractionDriver {
         Fraction f3 = new Fraction(5,0);
         System.out.println(f3);
         
-        Fraction f4 = new Fraction(3,1);
+        Fraction f4 = new Fraction(3,4);
         System.out.println(f4);
         
         Fraction f5 = new Fraction(0,3);
@@ -32,5 +32,10 @@ public class FractionDriver {
         int d1 = f1.getDenom();
         
         System.out.println(n3 + " " + d1);
+        
+        System.out.println(f2.multiply(f4));
+        System.out.println(f2.divide(f4));
+        
+        System.out.println(f2.add(f4));
     }
 }
