@@ -1,54 +1,105 @@
-public class learningWrappers {
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 
-    public static void main(String[] args) {
-        
-        System.out.println(equivalent(0.5,0.5));
-        //Write code that will declare and instantiate various Integer objects
-        Integer i1 = new Integer(5);
-        Integer i2 = new Integer(-123);
-        Integer i4 = new Integer(5);
-        Integer i3 = 82; //NO >:( Dont do this  
-        
-        //write code that will call the intValue() method on one or more of the Integer objects that you declared/instantiated above
-        int prim1 = i1.intValue(); //non-static method
-        int prim2 = i2.intValue();
-        
-        //write code that will call the equals() method on one or more of the Integer objects that you declared/instantiated above
-        boolean b1 = i1.equals(i2);
-        boolean b2 = i1.equals(i4);
-        System.out.println(b2);
-        
-        String word = "Hello";
-        boolean b3 = i1.equals(word); //will still compile because it's an object
-        System.out.println(b3);
-        
-        //write code that will call the toString() method on one or more of the Integer objects that you declared/instantiated above
-        String s1 = i1.toString();
-        System.out.println(s1 + 5); //String 5, not int 5
-        System.out.println(s1.length());
-        
-        String s2 = i2.toString();
-        System.out.println(s2.length()); //-123
-        
-        //Write code that will declare and instantiate various Double objects
-        Double d1 = new Double(2.0);
-        Double d2 = new Double(3.14);
-        Double d3 = 4.5; //NOOOO >:( DONT DO THIS
+
+/**
+ *
+ * @author mirah
+ */
+public class LearningWrappers {
+    public static void main(String [] args){
+        System.out.println(order("ram", "cat"));
+        System.out.println(evilE("bean"));
     }
     
-    public static Integer sum(Integer num1, Integer num2){
-        Integer answer = num1.intValue()+ num2.intValue();
-        return answer;
+    public static int dateFashion(int you, int date){
+        //my style 8+ OR datestyle 8+ = yes
+        //if my style or datestyle 2- = no
+        //else, result maybe
+        if (you >= 8 || date >= 8){
+            return 2;
+        }
+        else if (you <= 2 || date <= 2){
+            return 0;
+        }
+        else {
+            return 1;
+        }
     }
     
-    public static Double equivalent(Double d1, Double d2){
-        
-        if (d1.equals(d2)){
-            return new Double(d1.doubleValue() * d2.doubleValue());
+    public static String order(String str1, String str2){
+        if (str1.compareTo(str2) == 0){
+            return str1 + str2;
+        }
+        else if(str1.compareTo(str2) > 0){
+            return str2 + str1;
         }
         else{
-            return new Double(Math.abs(d1.doubleValue() - d2.doubleValue()));
+            return str1 + str2;
         }
     }
-
+    
+    public static boolean squirrelPlay(int temp, boolean isSummer){
+        if(temp >= 60 && temp <= 90){
+            return true;
+        }
+        else if (isSummer && temp <= 100 && temp >= 60){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    
+    public static boolean funnyHatParty(int funnyHats, boolean isWeekend){
+        if(funnyHats >= 40 && funnyHats <= 60){
+            return true;
+        }
+        else if (isWeekend && funnyHats >= 40){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    
+    public static String evilE(String str){
+        int loc = str.indexOf('E');
+        String left = "";
+        String right = "";
+        if (loc == -1){
+            return str;
+        }
+        if (loc > 0 && loc < str.length()){
+            left = " " + str.substring(0, loc -1);
+            right = str.substring(loc + 2) + " ";
+        }
+        else if (loc == 0){
+            left = " ";
+            right = str.substring(loc + 2);
+        }
+        else if (loc == str.length()){
+            left = str.substring(0, loc -1);
+            right = " ";
+        }
+        
+        if (loc != 0 && str.charAt(loc - 1) == 'e'){
+            return left + "eE" + right;
+        }
+        else if (loc != str.length() && str.charAt(loc + 1) == 'e'){
+            return left + "Ee" + right;
+        }
+        else if (loc != 0 && loc != str.length() && (str.charAt(loc + 1) == 'E' || str.charAt(loc - 1) == 'E')){
+            return left + "EE" + right;
+        }
+        else if(loc > -1){
+            return left + " E " + right;
+        }
+        else{
+            return str;
+        }
+    }
 }

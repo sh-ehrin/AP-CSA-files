@@ -1,6 +1,16 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 
-public class ImplementingMethods {
 
+/**
+ *
+ * @author mirah
+ */
+public class implementingMethods {
+    
     public static void main(String[] args) {
         System.out.println(loneTeen(13, 99));
         System.out.println(loneTeen(21, 19));
@@ -106,16 +116,21 @@ public class ImplementingMethods {
         return answer;
     }
     
-//    public static int kindaSum(int num) {
-//        
-//    }
+    public static int kindaSum(int num) {
+        String number = "" + num;
+        char ch1 = number.charAt(0);
+        char ch2 = number.charAt(1);
+        int a = Integer.parseInt(String.valueOf(ch1));
+        int b = Integer.parseInt(String.valueOf(ch2));
+        return a + b;
+    }
     
     public static String notString(String str){
         String ans = str;
-        if (str.compareTo("not ") > 0){
+        if (str.compareTo("not ") > 0 || str.compareTo("not ") < 0){
             ans = "not " + str;
         }
-        else if (str.indexOf("not ")==-1){
+        else if (str.indexOf("not ") == 0){
             ans = str;
         }
         return ans;

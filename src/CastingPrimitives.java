@@ -4,17 +4,33 @@
  * and open the template in the editor.
  */
 
+
 /**
  *
- * @author ShehrinHabib
+ * @author mirah
  */
 public class CastingPrimitives {
 
     public static void main(String[] args) {
-        int j = 9;
-        int k = 2;
-        double quot1 = (double)(j) / (double)(k);
-        System.out.println(quot1);
+        int x = 9;
+        double y = 1.5;
+        int z = 2;
+
+        int a = x + z; //11
+        int b = (int) y + x; //10
+        int c = x / z; //4
+        double e = x / y; // 6.0
+        double f = (double) (x / z); //4.5
+        double g = (double) x / z; //4.5
+        double m = a + b + c + e + f + g;
+
+        System.out.println(m);
+        System.out.println(a);
+        System.out.println(b);
+        System.out.println(c);
+        System.out.println(e);
+        System.out.println(f);
+        System.out.println(g);
 
     }
 }
