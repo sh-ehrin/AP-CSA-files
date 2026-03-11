@@ -89,9 +89,9 @@ public class Fraction {
         return new Fraction(f3.num+f4.num, this.denom*f2.denom);
     }
     
-    public int gcf(){
-        if 
-    }
+//    public int gcf(){
+//        if 
+//    }
     
 //    public Fractions(int n, int d){
 //        num = n; //this classes set to parameters

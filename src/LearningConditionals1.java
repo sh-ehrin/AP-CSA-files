@@ -7,7 +7,7 @@
  */
 import javax.swing.JOptionPane;
 
-public class LearningConditionals {
+public class LearningConditionals1{
 
     public static void main(String[] args) {
         int age;

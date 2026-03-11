@@ -10,13 +10,13 @@
  */
 public class ImplementingMethods2 {
     public static void main(String [] args){
-        System.out.println(evilE("dEep"));
+    //    System.out.println(evilE("dEep"));
     }
-    public static String evilE(String str){
-           int Eloc;
-           String longer = "SS" + str + "SS";
-           if (longer.indexOf("E") > 0){
-               
-           }
-        }
+//    public static String evilE(String str){
+//           int Eloc;
+//           String longer = "SS" + str + "SS";
+//           if (longer.indexOf("E") > 0){
+//               
+//           }
+//        }
 }
