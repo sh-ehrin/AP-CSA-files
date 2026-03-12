@@ -45,8 +45,8 @@ public class HabibProj6 {
 
         //4a
         int[][] g1 = {{9, 8, 7, 6},
-        {5, 4, 12, 1},
-        {3, 19, 2, 13}};
+        {5, 4, 2, 1},
+        {3, 9, 2, 3}};
 
         prints.print2D(removeRow(g1, 0));
 
@@ -70,6 +70,14 @@ public class HabibProj6 {
         //5b
         System.out.println();
         prints.print2String(change2DArray(table));
+        
+        //6
+        char[][] lets = {{'s','h','u','j','r','x','e','l'},
+                         {'x','q','a','i','x','r','h','a'}};
+        prints.print2Char(soDramatic(lets));
+        
+        //7
+        prints.print2D(reverseColMajor(g1));
     }
 
     //1
@@ -214,4 +222,49 @@ public class HabibProj6 {
     }
     
     //6
+    public static char[][] soDramatic(char[][] lets){
+        //modify the array
+        for (int r = 0; r < lets.length; r++){
+            for (int c = 0; c < lets[r].length; c++){
+                if (lets[r][c] == 'a'){
+                    lets[r][c] = Character.toUpperCase(lets[r][c]);
+                }
+                else if (lets[r][c] == 'h'){
+                    lets[r][c] = Character.toUpperCase(lets[r][c]);
+                }
+                else if (lets[r][c] == 'j'){
+                    lets[r][c] = Character.toUpperCase(lets[r][c]);
+                }
+                else if (lets[r][c] == 'r'){
+                    lets[r][c] = Character.toUpperCase(lets[r][c]);
+                }
+                else {
+                    lets[r][c] = '-';
+                }
+            }
+        }
+        return lets;
+    }
+    
+    //7 (haha)
+    public static int[][] reverseColMajor(int[][] mat){
+        //return a new array with the countr starting from end that works its way up
+        int cols = mat[0].length;
+        int rows = mat.length;
+        int[][] result = new int[rows][cols];
+        int r = 0;
+        int c = 0;
+        
+        for (int row = rows - 1; row >= 0; row--){
+            for (int col = cols - 1; col >= 0; col--){
+                result[r][c] = mat[row][col];
+                c++;
+                if (c == cols){
+                    c = 0;
+                    r++;
+                }
+            }
+        }
+        return result;
+    }
 }

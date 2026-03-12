@@ -88,6 +88,22 @@ public class Learning2DArrays {
         System.out.println();
     }
     
+    public static void print2Char(char[][] arr){
+        
+        for (int r = 0; r < arr.length; r++){
+            for (int c = 0; c < arr[r].length; c++){
+                if(c == arr[0].length-1){
+                    System.out.print(arr[r][c]);
+                }
+                else{
+                    System.out.print(arr[r][c]+", ");
+                }
+            }
+            System.out.println();
+        }
+        System.out.println();
+    }
+    
     public static void print2Double(double[][] arr){
         
         for (int r = 0; r < arr.length; r++){
