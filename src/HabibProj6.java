@@ -78,6 +78,52 @@ public class HabibProj6 {
         
         //7
         prints.print2D(reverseColMajor(g1));
+        
+        //8
+        int[][] test8 = {{9, 8, 7, 6, 2, 4, 5},
+                         {5, 4, 2, 1, 9, 3, 1},
+                         {3, 9, 2, 3, 5, 1, 2},
+                         {8, 7, 6, 3, 2, 5, 5},
+                         {1, 2, 3, 3, 2, 1, 4},
+                         {9, 8, 7, 6, 7, 8, 9}};
+        print.printArrayInt(get5x5At(test8, 3,0));
+        System.out.println("");
+        
+        //9a
+        int[][] puzzle1 ={{4, 3, 5, 2, 6, 9, 7, 8, 1},
+                          {6, 8, 2, 5, 7, 1, 4, 9, 3},
+                          {1, 9, 7, 8, 3, 4, 5, 6, 2},
+                          {8, 2, 6, 1, 9, 5, 3, 4, 7},
+                          {3, 7, 4, 6, 8, 2, 9, 1, 5},
+                          {9, 5, 1, 7, 4, 3, 6, 2, 8},
+                          {5, 1, 9, 3, 2, 6, 8, 7, 4},
+                          {2, 4, 8, 9, 5, 7, 1, 3, 6},
+                          {7, 6, 3, 4, 1, 8, 2, 5, 9}};
+        
+        int[][] puzzle2 ={{1, 3, 5, 2, 6, 9, 7, 8, 1},
+                          {6, 8, 2, 5, 7, 1, 4, 9, 3},
+                          {1, 9, 7, 8, 3, 4, 5, 6, 2},
+                          {8, 2, 6, 1, 9, 5, 3, 4, 7},
+                          {3, 7, 4, 6, 8, 2, 9, 1, 5},
+                          {9, 5, 1, 7, 4, 3, 6, 2, 8},
+                          {5, 1, 9, 3, 2, 6, 8, 9, 4},
+                          {2, 4, 8, 9, 5, 7, 1, 3, 6},
+                          {7, 6, 3, 4, 1, 8, 2, 5, 9}};
+        
+        System.out.print("9a ");
+        System.out.println((checkRow(puzzle1, 2)));
+        
+        //9b
+        System.out.print("9b ");
+        System.out.println(checkCol(puzzle1, 2));
+        
+        //9c
+        System.out.print("9c ");
+        System.out.println(check3x3(puzzle1, 0, 3));
+        
+        //9d
+        System.out.print("9d ");
+        System.out.println(checkPuzzle(puzzle1));
     }
 
     //1
@@ -266,5 +312,122 @@ public class HabibProj6 {
             }
         }
         return result;
+    }
+    
+    //8
+    public static int[] get5x5At(int[][] grid, int row, int col){
+        //bounds
+        int startRow = row - 2;
+        int endRow = row + 2;
+        int startCol = col - 2;
+        int endCol = col + 2;
+        
+        //check if edges
+        if (startRow < 0){
+            startRow = 0;
+        }
+        if (endRow > grid.length - 1){
+            endRow = grid.length - 1;
+        }
+        if (startCol < 0){
+            startCol = 0;
+        }
+        if (endCol > grid[0].length - 1){
+            endCol = grid[0].length - 1;
+        }
+        
+        //instantiate array and loop
+        int finalArrayLength = (endRow-startRow + 1)*(endCol-startCol + 1);
+        int [] the5x5 = new int[finalArrayLength]; 
+        int index = 0;
+        
+        for (int r = startRow; r <= endRow; r++){
+            for (int c = startCol; c <= endCol; c++){
+                the5x5[index] = grid[r][c];
+                index++;
+            }
+        }
+        
+        return the5x5;
+    }
+    
+    //9a
+    public static boolean checkRow(int[][] puzzle, int currRow){
+        for (int num = 1; num <= 9; num++){
+            int count = 0;
+            for (int c = 0; c < puzzle[0].length; c++){
+                if (puzzle[currRow][c] == num){
+                    count++;
+                }
+            }
+            if (count != 1){
+                    return false;
+                }
+        }
+        return true;
+    }
+    
+    //9b
+    public static boolean checkCol(int[][] puzzle, int currCol){
+        for (int num = 1; num <= 9; num++){
+            int count = 0;
+            for (int r = 0; r < puzzle.length; r++){
+                if (puzzle[r][currCol] == num){
+                    count++;
+                }
+            }
+            if (count != 1){
+                    return false;
+                }
+        }
+        return true;
+    }
+    
+    //9c
+    public static boolean check3x3(int[][] puzzle, int currRow, int currCol){
+        //bool arr 0-9
+        boolean [] vals = new boolean[10];
+        
+        for (int r = currRow; r < currRow + 3; r++){
+            for (int c = currCol; c < currCol + 3; c++){
+                int indexVal = puzzle[r][c];
+                if(indexVal < 1 || indexVal > 9){
+                    System.out.println("input of numbers is not within 1-9");
+                    return false;
+                }
+                if(vals[indexVal] == true){
+                    return false;
+                }
+                else{
+                    vals[indexVal] = true;
+                }
+            }
+        }
+        return true;   
+    }
+    
+    //9d
+    public static boolean checkPuzzle(int[][] puzzle){
+        //rows
+        for (int r = 0; r < puzzle.length; r++){
+            if (checkRow(puzzle, r) == false){
+                return false;
+            }
+        }
+        //cols
+        for (int c = 0; c < puzzle[0].length; c++){
+            if(checkCol(puzzle, c) == false){
+                return false;
+            }
+        }
+        //3x3
+        for (int r = 0; r < puzzle.length - 2; r+=3){
+            for (int c = 0; c < puzzle[0].length - 2; c+=3){
+                if (check3x3(puzzle, r, c) == false){
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 }
