@@ -1,3 +1,4 @@
+package src;
 import java.util.ArrayList;
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -66,19 +67,23 @@ System.out.println(roster);
 
 
 //7. get the Last letter of the first student in roster.
-
-
+String first = roster.get(0);
+        System.out.println(first);
+char lastL = roster.get(0).charAt(roster.get(0).length()-1); //yuck
+        System.out.println(lastL);
 
 
 
 //8. get the first letter of the last student in roster.
-
-
-
-
-
+String last = roster.get(roster.size()-1);
+        System.out.println(last);
+char firstL = last.charAt(0);
+        System.out.println(firstL);
 
 //9. Display the first 3 letters of all the names in roster.
 
+for (int i = 0; i < roster.size(); i++){
+    System.out.print(roster.get(i).substring(0, 3) + ", ");
+}
     }
 }
