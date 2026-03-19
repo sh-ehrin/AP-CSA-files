@@ -1,4 +1,3 @@
-package src;
 import java.util.ArrayList;
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -90,6 +89,20 @@ public class LearningArrayList {
         System.out.println(allFirstChars(roster));
         
         System.out.println(removeStringsBefore(roster, "ABC"));
+        
+        ArrayList<String> alphabetical = new ArrayList<String>();
+        
+        alphabetical.add("a");
+        alphabetical.add("b");
+        alphabetical.add("c");
+        alphabetical.add("d");
+        alphabetical.add("e");
+        alphabetical.add("f");
+        alphabetical.add("g");
+        alphabetical.add("h");
+        alphabetical.add("i");
+        
+        insertAlphabetically(alphabetical, "banana");
     }
     
     public static String allFirstChars(ArrayList<String> strList){
@@ -119,6 +132,18 @@ public class LearningArrayList {
             }
         }
         return removed;
+    }
+
+    public static void insertAlphabetically(ArrayList<String> strList, String str){
+        
+        for (int i = 0; i < strList.size()-1; i++){
+            if (strList.get(i).compareTo(str) < 0 && strList.get(i+1).compareTo(str) > 0){
+                strList.add(i, str);
+                break;
+            }
+        }
+        
+        System.out.println(strList);
     }
 
 }
