@@ -51,7 +51,7 @@ public class ReadFromFile { //data collections not needed for frq, they are only
             "Lex:Luther:UID004:Tier2:2025-06-18:NA",
             "Peter:Parker:UID027:Tier3:2025-10-25:EU"
         };
-        
+
         LearningArray print = new LearningArray();
 
         print.printArray(getNamesWithNonUniqueIDs(repeatingDataSmall));
@@ -85,28 +85,30 @@ public class ReadFromFile { //data collections not needed for frq, they are only
     }
 
     public static String[] getNamesWithNonUniqueIDs(String[] allUsers) {
+        String curr = "";
+        String[] arr = new String[allUsers.length];
+        String names = "";
 
-        String[][] data = new String[allUsers.length][6];
-        int counter = 0;
-
-        for (int r = 0; r < allUsers.length; r++) {
-            for (int c = 0; c < allUsers[0].split(":").length; c++) {
-                data[r] = allUsers[counter].split(":");
-            }
-        }
-
-        String nameIdMatch = "";
-
-        for (int r = 0; r < data.length; r++) {
-            for (int c = 0; c < data.length; c++) {
-                if (data[c][2] == data[r][2]) {
-                    nameIdMatch += data[r][0] + "/" + data[r][1];
+        for (int i = 0; i < allUsers.length; i++) {
+            boolean found = false;
+            curr = arr[i];
+            String[] currInfo = curr.split(":");
+            for (int j = i + 1; j < allUsers.length - 1; j++) {
+                String next = arr[j];
+                String[] nextInfo = next.split(":");
+                if (curr == next) {
+                    found = true;
+                    names += currInfo[1] + currInfo[0] + ", " + nextInfo[1] + nextInfo[0] + ", ";
                 }
             }
         }
-
-        String[] matchingIds = nameIdMatch.split("/");
-
-        return matchingIds;
+        return names.split(", ");
+    }
+    
+    public static int countLines(String filename){
+        Scanner file = new Scanner(new File(filename));
+        try{
+            
+        }
     }
 }
